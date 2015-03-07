@@ -25,8 +25,11 @@ if(empty($_GET['page'])) {
 	$page = $_GET['page'];
 }
 
-
-load_view($page);
+$data = array(
+	'title'	=> "Myanmar Links",
+	'name'	=> 'How are you'	
+	);
+load_view($page, $data);
 
 function load_ngapain_view($page) {
 	switch ($page) {
