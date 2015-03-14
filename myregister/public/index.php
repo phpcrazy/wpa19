@@ -17,6 +17,7 @@ http://localhost/wpa19/myregister/public/index.php?page=blabla
 */
 
 include "../wpa19/functions.php";
+include "../app/controller/controllers.php";
 
 
 if(empty($_GET['page'])) {
@@ -25,11 +26,22 @@ if(empty($_GET['page'])) {
 	$page = $_GET['page'];
 }
 
-$data = array(
-	'title'	=> "Myanmar Links",
-	'name'	=> 'How are you'	
-	);
-load_view($page, $data);
+$routes = include "../app/routes.php";
+
+if(array_key_exists($page, $routes)) {
+	call_user_func($routes[$page]);
+} else {
+	echo "404";
+}
+
+
+// if($page == 'home') {
+// 	_homeController();
+// } elseif($page == 'blog') {
+// 	_blogController();
+// } elseif($page == 'register') {
+// 	_registerController();
+// }
 
 function load_ngapain_view($page) {
 	switch ($page) {

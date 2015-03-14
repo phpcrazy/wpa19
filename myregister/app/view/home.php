@@ -7,7 +7,7 @@
 </head>
 <body>
 <div id='fg_membersite_content'>
-<h2>Membership website</h2>
+<h2><?php echo $title; ?></h2>
 <ul>
 <li><a href='index.php?page=register'>Register</a></li>
 <li><a href='confirmreg.php'>Confirm registration</a></li>

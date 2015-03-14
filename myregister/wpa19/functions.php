@@ -11,7 +11,7 @@ function load_view($page, $data) {
 	} else {
 		echo "404!";
 	}
+
 }
 
-
- ?>
+?>
