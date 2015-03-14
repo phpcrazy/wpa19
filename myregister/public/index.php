@@ -16,17 +16,18 @@ http://localhost/wpa19/myregister/public/index.php?page=blog
 http://localhost/wpa19/myregister/public/index.php?page=blabla
 */
 
-include "../wpa19/functions.php";
-include "../app/controller/controllers.php";
+define("DD", '..');
 
+include DD . "/wpa19/functions.php";
+include DD . "/app/controller/controllers.php";
 
 if(empty($_GET['page'])) {
 	$page = 'home';
 } else {
-	$page = $_GET['page'];
+	$page = htmlspecialchars($_GET['page']);
 }
 
-$routes = include "../app/routes.php";
+$routes = include DD . "/app/routes.php";
 
 if(array_key_exists($page, $routes)) {
 	call_user_func($routes[$page]);

@@ -2,7 +2,7 @@
 
 function _homeController() {
 	$data = array(
-		'title'	=> "Myanmar Links",
+		'title'	=> config_load('app.title'),
 		'name'	=> 'How are you'	
 	);
 	load_view('home', $data);
@@ -10,7 +10,7 @@ function _homeController() {
 
 function _blogController() {
 	$data = array(
-		'title'	=> 'Blog Area',
+		'title'	=> config_load('app.foo.bar'),
 		'name'	=> 'How do you do?'
 		);
 	load_view('blog', $data);
