@@ -3,7 +3,7 @@
 return array(
 	'home'		=> '_homeController',
 	'blog'		=> '_blogController',
-	'register'	=> '_pageController',
+	'register'	=> '_registerController',
 	'thiha'		=> '_thihaController'
 	);
 

@@ -16,11 +16,31 @@ function _blogController() {
 	load_view('blog', $data);
 }
 
-function _pageController() {
-	$data = array(
-		'title'	=> 'Page'
-		);
-	load_view('register', $data);
+// Varification
+// Validation
+function _registerController() {
+	if($_SERVER['REQUEST_METHOD'] == "POST") {
+		$userdata = [
+			'name'		=> $_POST['name'],
+			'email'		=> $_POST['email'],
+			'username'	=> $_POST['username'],
+			'password'	=> $_POST['password']
+		];
+		
+		$rules = [
+			'name'		=> 'required|min:4',
+			'email'		=> 'required|email',
+			'username'	=> 'required|min:4',
+			'password'	=> 'required|min:4'
+		];
+
+		if(_validateData($userdata, $rules)) {
+			
+		} else {
+			echo "Not validated!";
+		}
+	}
+	load_view('register');
 }
 
 function _thihaController() {
@@ -28,6 +48,29 @@ function _thihaController() {
 		'title'	=> 'Soe Thiha Naung'
 		);
 	load_view('thiha', $data);
+}
+
+
+// Flash Message -> One-time used session
+
+function _validateData($userdata, $rules) {
+	$rules_name = $rules['name'];
+	$data_name = $userdata['name'];
+	$rules_name = explode('|', $rules_name);
+
+	foreach ($rules_name as $key => $value) {
+
+		if($value == 'required') {
+			if(empty($data_name)) {
+
+				return false;
+			} else {
+				return true;
+			}
+		} 
+	}
+
+
 }
 
 
