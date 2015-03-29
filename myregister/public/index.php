@@ -20,40 +20,6 @@ http://localhost/wpa19/myregister/public/index.php?page=blabla
 define("DD", '..');
 
 include DD . "/wpa19/functions.php";
-
-$servername = config_load('database.hostname');
-$dbname = config_load('database.dbname');
-$username = config_load('database.username');
-$password = config_load('database.password');
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-echo "Connected successfully";
-
-$sql = "CREATE TABLE users (
-id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-name VARCHAR(255),
-email VARCHAR(255),
-username VARCHAR(255),
-password VARCHAR(255)
-)";
-
-if (mysqli_query($conn, $sql)) {
-    echo "Table Users created successfully";
-} else {
-    echo "Error creating table: " . mysqli_error($conn);
-}
-
-mysqli_close($conn);
-
-
-die();
-
 include DD . "/app/controller/controllers.php";
 
 if(empty($_GET['page'])) {

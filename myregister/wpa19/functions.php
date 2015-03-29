@@ -33,4 +33,50 @@ function dump($data, $die = false) {
 	}
 }
 
+function getDataById($table_name, $id) {
+	$conn = _connectDB();
+	$sql = "SELECT * FROM " . $table_name 
+		. " WHERE id =" . $id;
+	$result = mysqli_query($conn, $sql);
+	$return_result = mysqli_fetch_all($result, MYSQLI_ASSOC);
+	mysqli_close($conn);
+	mysqli_free_result($result);
+	return $return_result;	
+}
+
+
+function getAllData($table_name) {
+	// Connect
+	// SQL Execute
+	// return Values
+	// Connection Close
+	$conn = _connectDB();
+	$sql = "SELECT * FROM " . $table_name;
+	$result = mysqli_query($conn, $sql);
+	$return_result = mysqli_fetch_all($result, MYSQLI_ASSOC);
+	mysqli_close($conn);
+	mysqli_free_result($result);
+	return $return_result;
+}
+
+
+function _connectDB() {
+	$servername = config_load("database.hostname");
+	$username = config_load("database.username");
+	$password = config_load("database.password");
+	$dbname = config_load("database.dbname");
+
+	// Create connection
+	$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+	// Check connection
+	if (!$conn) {
+		die("Connection failed: " . mysqli_connect_error());
+	}
+	return $conn;
+}
+
+// sudo apt-get install php5-mysqlnd
+// sudo service apache2 restart
+
 ?>

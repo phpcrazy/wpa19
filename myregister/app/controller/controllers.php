@@ -1,6 +1,8 @@
 <?php 
 
 function _homeController() {
+	$customers = getAllData("customers");
+
 	$data = array(
 		'title'	=> config_load('app.title'),
 		'name'	=> 'How are you'	
@@ -9,11 +11,11 @@ function _homeController() {
 }
 
 function _blogController() {
-	$data = array(
-		'title'	=> config_load('app.foo.bar'),
-		'name'	=> 'How do you do?'
-		);
-	load_view('blog', $data);
+	$result = getDataById('users', 0);
+
+	dump($result, true);
+
+// 	load_view('blog', $data);
 }
 
 // Varification
