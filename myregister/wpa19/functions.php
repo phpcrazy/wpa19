@@ -60,6 +60,37 @@ function getAllData($table_name) {
 }
 
 
+function insertData($table_name, $data) {
+	$conn = _connectDB();
+	$field_sql = " (";
+	foreach ($data as $key => $value) {
+		# code...
+		$field_sql .= $key . ", ";
+	}
+	$field_sql = rtrim($field_sql, ", ");
+
+	$sql = "INSERT INTO " 
+			. $table_name 
+			. $field_sql 
+			. ") VALUES (";
+
+	foreach ($data as $key => $value) {
+		# code...
+
+		$sql .= '"'. $value . '", ';
+	}
+
+	$sql = rtrim($sql, ", ");
+	$sql .= ")";
+	
+	// var_dump($sql);
+	$result = mysqli_query($conn, $sql);
+
+	return $result;
+
+}
+
+
 function _connectDB() {
 	$servername = config_load("database.hostname");
 	$username = config_load("database.username");

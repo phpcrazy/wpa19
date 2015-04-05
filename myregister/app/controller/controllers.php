@@ -1,7 +1,7 @@
 <?php 
 
 function _homeController() {
-	$customers = getAllData("customers");
+	$customers = getAllData("users");
 
 	$data = array(
 		'title'	=> config_load('app.title'),
@@ -37,6 +37,14 @@ function _registerController() {
 		];
 
 		if(_validateData($userdata, $rules)) {
+			$userdata = array(
+				'name'		=> $_POST['name'],
+				'email'		=> $_POST['email'],
+				'username'	=> $_POST['username'],
+				'password'	=> password_hash($_POST['password'], PASSWORD_DEFAULT)
+				);	
+			$result = insertData("users", $userdata);
+			var_dump($result);
 			
 		} else {
 			echo "Not validated!";
@@ -49,6 +57,12 @@ function _thihaController() {
 	$data = array(
 		'title'	=> 'Soe Thiha Naung'
 		);
+	$customer = [
+		'name'	=> 'Soe Thiha Naung',
+		'password'	=> 'wrwerwerwer'
+	];
+
+	insertData("customers", $customer);
 	load_view('thiha', $data);
 }
 
