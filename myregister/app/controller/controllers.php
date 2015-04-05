@@ -44,13 +44,23 @@ function _registerController() {
 				'password'	=> password_hash($_POST['password'], PASSWORD_DEFAULT)
 				);	
 			$result = insertData("users", $userdata);
-			var_dump($result);
+			if($result == true) {
+				redirect("index.php?page=login");
+				// _loginController();
+			} else {
+				echo "503 Error!";
+				die();
+			}
 			
 		} else {
 			echo "Not validated!";
 		}
 	}
 	load_view('register');
+}
+
+function _loginController() {
+	load_view("login");
 }
 
 function _thihaController() {

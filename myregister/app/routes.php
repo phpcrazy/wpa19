@@ -4,7 +4,8 @@ return array(
 	'home'		=> '_homeController',
 	'blog'		=> '_blogController',
 	'register'	=> '_registerController',
-	'thiha'		=> '_thihaController'
+	'thiha'		=> '_thihaController',
+	'login'		=> '_loginController'
 	);
 
  ?>

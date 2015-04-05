@@ -83,7 +83,8 @@ function insertData($table_name, $data) {
 	$sql = rtrim($sql, ", ");
 	$sql .= ")";
 	
-	// var_dump($sql);
+	var_dump($sql);
+	die();
 	$result = mysqli_query($conn, $sql);
 
 	return $result;
@@ -105,6 +106,12 @@ function _connectDB() {
 		die("Connection failed: " . mysqli_connect_error());
 	}
 	return $conn;
+}
+
+function redirect($url, $statusCode = 303)
+{
+   header('Location: ' . $url, true, $statusCode);
+   die();
 }
 
 // sudo apt-get install php5-mysqlnd
