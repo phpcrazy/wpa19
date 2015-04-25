@@ -15,5 +15,6 @@
 <li><a href='access-controlled.php'>A sample member's only page</a></li>
 </ul>
 </div>
+
 </body>
 </html>

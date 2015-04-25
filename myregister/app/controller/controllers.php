@@ -4,8 +4,8 @@ function _homeController() {
 	$customers = getAllData("users");
 
 	$data = array(
-		'title'	=> config_load('app.title'),
-		'name'	=> 'How are you'	
+		'title'		=> config_load('app.title'),
+		'customers'	=> $customers	
 	);
 	load_view('home', $data);
 }
