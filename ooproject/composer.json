@@ -1,7 +1,8 @@
 {
 	"autoload": {
 		"classmap": [
-			"wpa19/library"
+			"wpa19/library",
+            "app/controller"
 		]
 		
 	}
