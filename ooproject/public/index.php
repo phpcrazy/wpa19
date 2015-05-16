@@ -7,6 +7,14 @@ require DD . "/vendor/autoload.php";
 
 // var_dump($GLOBALS);
 
+DB::table('users');
+
+DB::table("products");
+
+DB::table("customers");
+
+die();
+
 $request_uri = $_SERVER['REQUEST_URI'];
 $script_name = $_SERVER['SCRIPT_NAME'];
 
@@ -19,7 +27,6 @@ $path_info = array_values($path_info);
 
 
 $routes = include DD . '/app/routes.php';
-
 if(array_key_exists($path_info[0], $routes)) {
     $controller = $routes[$path_info[0]];
     $controller = explode("@", $controller);
