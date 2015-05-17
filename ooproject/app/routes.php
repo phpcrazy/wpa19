@@ -7,6 +7,7 @@
  */
 
 return [
-    'home'  => 'BlogController@view',
-    'blog'  => 'AnotherController@index'
+    'home'      => 'BlogController@index',
+    'view'      => 'BlogController@view',
+    'blog'      => 'AnotherController@index'
 ];

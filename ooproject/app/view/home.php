@@ -6,5 +6,8 @@
 </head>
 <body>
 <h1><?php echo $title; ?></h1>
+<?php foreach($users as $user) { ?>
+    <h3><?php echo $user['username']; ?></h3>
+<?php } ?>
 </body>
 </html>

@@ -8,8 +8,9 @@
 
 
 return array(
+    'engine'        => 'mysql',
     'hostname'      => 'localhost',
-    'dbname'        => 'wpa19oo',
+    'dbname'        => 'wpa19fun',
     'username'      => 'root',
     'password'      => 'mmlinks'
 );
