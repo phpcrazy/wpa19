@@ -9,5 +9,6 @@
 return [
     'home'      => 'BlogController@index',
     'view'      => 'BlogController@view',
-    'blog'      => 'AnotherController@index'
+    'blog'      => 'AnotherController@index',
+    'insert'    => 'BlogController@insert'
 ];

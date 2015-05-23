@@ -66,4 +66,26 @@ class DB extends PDO {
         return $data;
     }
 
+    public function insert($data) {
+
+        $sql = "INSERT INTO " . $this->table_name;
+        $keyset = "";
+        $dataset = "";
+        $array_keys = array_keys($data);
+
+        foreach($array_keys as $key) {
+            $keyset .= $key . ", ";
+            $dataset .= ":" . $key . ", ";
+        }
+        $kset = rtrim($keyset, ", ");
+        $dset = rtrim($dataset, ", ");
+
+        $sql .= " (" . $kset . ") VALUES ("
+            . $dset . ")";
+        $tsmt = $this->prepare($sql);
+        $tsmt->execute($data);
+
+        return $this->lastInsertId();
+    }
+
 }
